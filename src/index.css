@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --color-alabaster: #F7F7F5;
+  --color-obsidian: #121212;
+  --color-emerald: #00DF81;
+  --color-ochre: #CC5500;
+  --color-line: rgba(18, 18, 18, 0.1);
+  --color-arvind-red: #A1002B;
+  --color-arvind-blush: #FFE8ED;
+  --color-arvind-charcoal: #1A1A1A;
+  --color-arvind-bg: #FCFCFC;
+}
+
+body {
+  background-color: var(--color-alabaster);
+  color: var(--color-obsidian);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0, 223, 129, 0.08), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(204, 85, 0, 0.05), transparent 40%),
+              linear-gradient(to bottom right, var(--color-alabaster), #eaeaea);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  margin: 12px 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+}
+
+.bento-card {
+  background: white;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card.dark {
+  background: var(--color-obsidian);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.topographic-bg {
+  /* Using the original theme's grid instead of topo */
+}
+
+/* React Day Picker v9 Custom Styles */
+.custom-day-picker {
+  --rdp-accent-color: var(--color-emerald);
+  --rdp-background-color: var(--color-emerald);
+  --rdp-accent-background-color: rgba(0, 223, 129, 0.1);
+  --rdp-outline-color: var(--color-emerald);
+  --rdp-outline: none;
+  --rdp-selected-font: bold;
+  --rdp-day-width: 2.75rem;
+  --rdp-day-height: 2.75rem;
+  width: 100%;
+}
+
+.custom-day-picker .rdp-root {
+  width: 100%;
+  max-width: 100%;
+}
+
+.custom-day-picker .rdp-months {
+  justify-content: center;
+  width: 100%;
+}
+
+.custom-day-picker .rdp-month {
+  width: 100%;
+  max-width: 320px;
+}
+
+.custom-day-picker .rdp-table {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  .custom-day-picker {
+    --rdp-day-width: 2.25rem;
+    --rdp-day-height: 2.25rem;
+  }
+}
+
+.custom-day-picker .rdp-day,
+.custom-day-picker .rdp-button_reset,
+.custom-day-picker .rdp-button {
+  border-radius: 0.5rem !important;
+}
+
+.custom-day-picker .rdp-selected,
+.custom-day-picker .rdp-selected:focus-visible,
+.custom-day-picker .rdp-selected:hover,
+.custom-day-picker .rdp-day_selected,
+.custom-day-picker .rdp-day_selected:focus-visible,
+.custom-day-picker .rdp-day_selected:hover {
+  color: var(--color-obsidian) !important;
+  background-color: var(--color-emerald) !important;
+  border-radius: 0.5rem !important;
+  border: none !important;
+  outline: none !important;
+  font-weight: bold;
+  box-shadow: none !important;
+}
+
+/* Visually disabled past/unavailable dates */
+.custom-day-picker button:disabled,
+.custom-day-picker .rdp-day_disabled {
+  opacity: 0.3 !important;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* Indicators for available slots */
+.custom-day-picker .is-available:not(.rdp-selected) {
+  position: relative;
+  font-weight: 600;
+}
+
+.custom-day-picker .is-available:not(.rdp-selected)::after {
+  content: '';
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-emerald);
+}
